@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="start">
+
+    <include layout="@layout/activity_home_main" />
+
+
+    <!-- Custom Navigation Drawer Start -->
+    <LinearLayout
+        android:id="@+id/navigation_layout"
+        android:layout_width="@dimen/_260sdp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivHeader"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:scaleType="fitCenter"
+                android:src="@color/black"
+                app:shapeAppearanceOverlay="@style/CornerSize50Percent" />
+
+            <TextView
+                android:id="@+id/txtHeader"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:background="@drawable/bg_black_circle"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:maxLines="1"
+                android:scaleType="fitCenter"
+                android:text="U"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_50sdp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/user_name"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/full_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:id="@+id/edtProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@drawable/dialog_bg"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_16sdp"
+                android:singleLine="true"
+                android:text="@string/edit_profile"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12sdp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNavigation"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            android:scrollbarThumbHorizontal="@null"
+            android:scrollbarThumbVertical="@null"
+            android:scrollbars="none">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <TextView
+            android:id="@+id/txtLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="12sp"
+            android:background="@drawable/bg_colorprimary"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:paddingStart="@dimen/_26sdp"
+            android:paddingEnd="@dimen/_26sdp"
+            android:shadowColor="@color/colorPrimary"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:text="@string/logout"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
+    <!-- Custom Navigation Drawer End -->
+
+</androidx.drawerlayout.widget.DrawerLayout>

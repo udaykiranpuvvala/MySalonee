@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_12sdp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_6sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingEnd="@dimen/_6sdp">
+
+        <ImageView
+            android:id="@+id/ivShop"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:background="@drawable/bg_imageview_rounded"
+            android:scaleType="centerCrop"
+            android:src="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtShopTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_bold"
+            android:singleLine="true"
+            android:text="@string/sample_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintStart_toEndOf="@+id/ivShop"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtShopAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:fontFamily="@font/montserrat_regular"
+            android:singleLine="true"
+            android:text="@string/sample_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toEndOf="@+id/ivShop"
+            app:layout_constraintTop_toBottomOf="@+id/txtShopTitle" />
+
+        <RatingBar
+            android:id="@+id/ratingShop"
+            style="@android:style/Widget.Material.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:numStars="5"
+            android:progressTint="@color/button_color"
+            app:layout_constraintStart_toEndOf="@+id/ivShop"
+            app:layout_constraintTop_toBottomOf="@+id/txtShopAddress" />
+
+        <TextView
+            android:id="@+id/txtShopTimings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:fontFamily="@font/montserrat_regular"
+            android:singleLine="true"
+            android:text="@string/sample_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toEndOf="@+id/ivShop"
+            app:layout_constraintTop_toBottomOf="@+id/ratingShop" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "757697013950",
+    "project_id": "salonee-ee8af",
+    "storage_bucket": "salonee-ee8af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757697013950:android:25a7f08bad69f820cdd6ef",
+        "android_client_info": {
+          "package_name": "com.unik.salonee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757697013950-tvmrbf6scpggobk95ftqmfklb6pv6q55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8m-QTuyOBIHchEprr844d6Mmw3jsRc70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757697013950-tvmrbf6scpggobk95ftqmfklb6pv6q55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

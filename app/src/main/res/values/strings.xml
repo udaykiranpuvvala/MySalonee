@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">MySalonee</string>
+    <string name="sign_in">Sign In</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="enter_your_mobile_number">Enter your Mobile Number</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_a_member_sign_in">Already a member? SIGN IN</string>
+    <string name="txt_continue">Continue</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="verify_and_proceed"><![CDATA[Verify & Proceed]]></string>
+    <string name="next">Next</string>
+    <string name="lets_start">Lets Start!</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email ID</string>
+    <string name="gender">Gender</string>
+    <string name="area">Area</string>
+    <string name="verify">Verify</string>
+    <string name="please_enter_4_digit_code_sent_to_you_at">Please Enter 4 digit code sent to you at</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="resend">Don\'t get the code? RESEND</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">logout</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="dubai">Dubai</string>
+    <string name="search">Search</string>
+    <string name="categories">Categories</string>
+    <string name="customer_support">Customer Support</string>
+    <string name="how_can_we_help_you">How can we help you?</string>
+    <string name="salonee_email_id">info@mysalonee.com</string>
+    <string name="ph_no">+9710545093759</string>
+    <string name="back">back</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="sample_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+ It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+ It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+ It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+ It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </string>
+    <string name="hair_cut">Hair Cut</string>
+    <string name="salons_near_you">Salons Near You</string>
+    <string name="see_all">See All</string>
+    <string name="notifications">Notifications</string>
+    <string name="discounts">Discounts</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="kids">Kids</string>
+    <string name="book">Book</string>
+    <string name="choose_your_location">Choose Your Location</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="submit">Submit</string>
+    <string name="save">Save</string>
+    <string name="view">View</string>
+    <string name="our_services">Our Services</string>
+    <string name="our_products">Products</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="items">Items</string>
+</resources>
