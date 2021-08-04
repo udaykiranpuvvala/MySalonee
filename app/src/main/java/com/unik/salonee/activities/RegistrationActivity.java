@@ -38,6 +38,9 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText edtArea;
     Button btnSignIN;
 
+    String countryCode;
+    String phno;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +49,15 @@ public class RegistrationActivity extends AppCompatActivity {
         gpsTracker = new GPSTracker(this);
         registrationViewModel = new ViewModelProvider(this).get(RegistrationViewModel.class);
 
+        getIntentData();
         initUI();
 
+    }
+
+    private void getIntentData() {
+        Intent intent = getIntent();
+        countryCode = intent.getStringExtra("countryCode") + "";
+        phno = intent.getStringExtra("phno") + "";
     }
 
     private void initUI() {
@@ -69,7 +79,9 @@ public class RegistrationActivity extends AppCompatActivity {
         btnSignIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callAPIForRegistration();
+                if (validated()) {
+                    callAPIForRegistration();
+                }
             }
         });
     }
@@ -83,7 +95,27 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private boolean validated() {
-        return false;
+        boolean validated = false;
+
+        if (Utility.isValueNullOrEmpty(edtFullName.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(this, edtFullName, "Please Enter FullName");
+            edtFullName.requestFocus();
+        } else if (Utility.isValueNullOrEmpty(edtEmail.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(this, edtEmail, "Please Enter EMail Id");
+            edtEmail.requestFocus();
+        } else if (Utility.isValueNullOrEmpty(edtPassword.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(this, edtPassword, "Please Enter Password");
+            edtPassword.requestFocus();
+        } else if (Utility.isValueNullOrEmpty(edtGender.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(this, edtGender, "Please Select Gender");
+            edtGender.requestFocus();
+        } else if (Utility.isValueNullOrEmpty(edtArea.getText().toString().trim())) {
+            Utility.setSnackBarEnglish(this, edtArea, "Please Enter Area");
+            edtArea.requestFocus();
+        } else {
+            validated = true;
+        }
+        return validated;
     }
 
 
@@ -91,8 +123,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("name", "" + edtFullName.getText().toString().trim());
-        jsonObject.addProperty("mobile_code", "91");
-        jsonObject.addProperty("mobile", "7981007401");
+        jsonObject.addProperty("mobile_code", "" + countryCode);
+        jsonObject.addProperty("mobile", "" + phno);
         jsonObject.addProperty("area", "" + edtArea.getText().toString().trim());
         if (edtGender.getText().toString().trim().equals("Male")) {
             jsonObject.addProperty("gender", "1");

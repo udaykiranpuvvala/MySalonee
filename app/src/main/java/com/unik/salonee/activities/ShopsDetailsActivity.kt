@@ -1,12 +1,16 @@
 package com.unik.salonee.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RatingBar
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.JsonObject
@@ -14,9 +18,13 @@ import com.squareup.picasso.Picasso
 import com.unik.modelapp.utilities.Constants
 import com.unik.salonee.BaseApplication
 import com.unik.salonee.R
+import com.unik.salonee.adapter.ProductsAdapter
 import com.unik.salonee.adapter.ShopDetailsAdapter
+import com.unik.salonee.models.ProductsModel
 import com.unik.salonee.models.ServicesModel
 import com.unik.salonee.utilities.OnItemClickListener
+import com.unik.salonee.utilities.OnItemProductsClickListener
+import com.unik.salonee.utilities.PopUtils
 import com.unik.salonee.utilities.Utility
 import com.unik.salonee.webservices.viewmodels.ShopDetailsViewModel
 import org.json.JSONObject
@@ -41,6 +49,7 @@ class ShopsDetailsActivity : AppCompatActivity() {
     lateinit var shopDetailsViewModel: ShopDetailsViewModel
 
     lateinit var servicesList: ArrayList<ServicesModel>
+    lateinit var productsList: ArrayList<ProductsModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,18 +77,42 @@ class ShopsDetailsActivity : AppCompatActivity() {
         txtCartCount = findViewById(R.id.txtCartCount)
         txtCheckout = findViewById(R.id.txtCheckout)
         lnrLytCart = findViewById(R.id.lnrLytCart)
-        rvServicesList.layoutManager = LinearLayoutManager(this)
+        rvServicesList.layoutManager = GridLayoutManager(this, 2)
         rvServicesList.setHasFixedSize(true)
         rvProducts = findViewById(R.id.rvProducts)
-        rvProducts.layoutManager = LinearLayoutManager(this)
+        rvProducts.layoutManager = GridLayoutManager(this, 2)
         rvProducts.setHasFixedSize(true)
 
         servicesList = ArrayList()
+        productsList = ArrayList()
 
-        lnrLytCart.visibility= View.GONE
+        lnrLytCart.visibility = View.GONE
+
+        if (BaseApplication.cartModelServicesArrayList.size != 0) {
+            if (!shopId.equals(BaseApplication.cartModelServicesArrayList.get(0).serviceProviderId)) {
+
+                PopUtils.exitDialog(
+                    this,
+                    "Your cart has existing Services/Products From Other. Do you want to clear it?",
+                    View.OnClickListener {
+                        BaseApplication.cartModelServicesArrayList.clear()
+                        lnrLytCart.visibility = View.GONE
+
+                        val intent = intent
+                        finish()
+                        startActivity(intent)
+                    })
+            } else {
+                txtCartCount.setText(BaseApplication.cartModelServicesArrayList.size.toString())
+                lnrLytCart.visibility = View.VISIBLE
+            }
+
+        } else {
+            lnrLytCart.visibility = View.GONE
+        }
 
         txtCheckout.setOnClickListener {
-            startActivity(Intent(this,CheckOutActivity::class.java))
+            startActivity(Intent(this, CheckOutActivity::class.java))
         }
 
         ivBack.setOnClickListener {
@@ -89,13 +122,70 @@ class ShopsDetailsActivity : AppCompatActivity() {
 
     private fun setServiceAdapter() {
         rvServicesList.adapter = ShopDetailsAdapter(this, servicesList,
-            OnItemClickListener { cartServicesModel, position ->
-                Toast.makeText(this, "" + position + "" + cartServicesModel, Toast.LENGTH_LONG)
-                    .show()
-                lnrLytCart.visibility= View.VISIBLE
+            OnItemClickListener { cartServicesModel, position, context ->
 
-                BaseApplication.cartModelServicesArrayList.add(cartServicesModel)
-                txtCartCount.setText(BaseApplication.cartModelServicesArrayList.size.toString())
+                if (BaseApplication.cartModelServicesArrayList != null && BaseApplication.cartModelServicesArrayList.size != 0) {
+                    if (!shopId.equals(BaseApplication.cartModelServicesArrayList.get(0).serviceProviderId)) {
+
+                        PopUtils.exitDialog(
+                            context,
+                            "Your cart has existing Services/Products From Other. Do you want to clear it and Add to Cart?",
+                            View.OnClickListener {
+                                BaseApplication.cartModelServicesArrayList.clear()
+                                lnrLytCart.visibility = View.GONE
+
+                                val intent = intent
+                                finish()
+                                context.startActivity(intent)
+                            })
+                    } else {
+                        lnrLytCart.visibility = View.VISIBLE
+
+                        BaseApplication.cartModelServicesArrayList.add(cartServicesModel)
+                        txtCartCount.setText(BaseApplication.cartModelServicesArrayList.size.toString())
+                    }
+                } else {
+                    lnrLytCart.visibility = View.VISIBLE
+
+                    BaseApplication.cartModelServicesArrayList.add(cartServicesModel)
+                    txtCartCount.setText(BaseApplication.cartModelServicesArrayList.size.toString())
+                }
+
+            })
+    }
+
+    private fun setProductsAdapter() {
+        rvProducts.adapter = ProductsAdapter(
+            this,
+            productsList,
+            OnItemProductsClickListener { cartProductsModel, position, context ->
+
+                if (BaseApplication.cartModelProductsArrayList != null && BaseApplication.cartModelProductsArrayList.size != 0) {
+                    if (!shopId.equals(BaseApplication.cartModelProductsArrayList.get(0).serviceProviderId)) {
+
+                        PopUtils.exitDialog(
+                            context,
+                            "Your cart has existing Services/Products From Other. Do you want to clear it and Add to Cart?",
+                            View.OnClickListener {
+                                BaseApplication.cartModelProductsArrayList.clear()
+                                lnrLytCart.visibility = View.GONE
+
+                                val intent = intent
+                                finish()
+                                context.startActivity(intent)
+                            })
+                    } else {
+                        lnrLytCart.visibility = View.VISIBLE
+
+                        BaseApplication.cartModelProductsArrayList.add(cartProductsModel)
+                        txtCartCount.setText((BaseApplication.cartModelServicesArrayList.size + BaseApplication.cartModelProductsArrayList.size).toString() + "")
+                    }
+                } else {
+                    lnrLytCart.visibility = View.VISIBLE
+
+                    BaseApplication.cartModelProductsArrayList.add(cartProductsModel)
+                    txtCartCount.setText(BaseApplication.cartModelProductsArrayList.size.toString())
+                }
 
             })
     }
@@ -117,8 +207,8 @@ class ShopsDetailsActivity : AppCompatActivity() {
                     txtShopTitle.text =
                         jsonArrayShopDetails.optJSONObject(0).optString("business_name")
                     txtShopAddress.text = jsonArrayShopDetails.optJSONObject(0).optString("address")
-                    txtRatingCount.text = "4.2"
-                    ratingShop.rating = 4.2f
+                    /*txtRatingCount.text = "4.2"
+                    ratingShop.rating = 4.2f*/
                     txtShopTimings.text = "Opens at 10:00 AM Closes at 9:00 PM"
                     Picasso.get()
                         .load(
@@ -145,11 +235,32 @@ class ShopsDetailsActivity : AppCompatActivity() {
                                 "",
                                 "",
                                 "",
-                                ""
+                                "",
+                                jsonObjectService.optString("service_at_home_price","0"),
+                                jsonObjectService.optString("service_at_salon_price","0")
                             )
                             servicesList.add(services)
                         }
                         setServiceAdapter()
+                    }
+
+                    val jsonArrayProducts = jsonResponse.optJSONArray("ourproducts")
+                    if (jsonArrayProducts != null) {
+                        productsList.clear()
+                        for (j in 0 until jsonArrayProducts.length()) {
+                            val jsonObjectProducts = jsonArrayProducts.getJSONObject(j)
+                            val products = ProductsModel(
+                                jsonObjectProducts.optString("product_id"),
+                                jsonObjectProducts.optString("sale_price"),
+                                jsonObjectProducts.optString("product_title"),
+                                jsonObjectProducts.optString("product_image"),
+                                jsonObjectProducts.optString("base_price"),
+                                jsonObjectProducts.optString("product_description"),
+                                shopId
+                            )
+                            productsList.add(products)
+                        }
+                        setProductsAdapter()
                     }
                 }
             }

@@ -115,7 +115,9 @@ class ServiceListActivity : AppCompatActivity() {
                                     servicesJsonArray.getJSONObject(i).optString("close_time"),
                                     servicesJsonArray.getJSONObject(i).optString("rating"),
                                     servicesJsonArray.getJSONObject(i).optString("shop_id"),
-                                    servicesJsonArray.getJSONObject(i).optString("gender")
+                                    servicesJsonArray.getJSONObject(i).optString("gender"),
+                                    servicesJsonArray.getJSONObject(i).optString("service_at_home_price"),
+                                    servicesJsonArray.getJSONObject(i).optString("service_at_salon_price")
                                 )
                                 servicesArrayList.add(servicesModel)
                             }

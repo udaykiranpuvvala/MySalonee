@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.unik.modelapp.utilities.Constants
 import com.unik.salonee.R
+import com.unik.salonee.activities.AllCategoriesActivity
 import com.unik.salonee.activities.ServiceListActivity
 import com.unik.salonee.models.CategoriesModel
 import com.unik.salonee.utilities.Utility
@@ -54,6 +55,10 @@ class HomeCategoryAdapter(
                 intent.putExtra("categoryId", "" + categoriesArrayList.get(position).categoryId)
                 intent.putExtra("categoryName", "" + categoriesArrayList.get(position).name)
                 context.startActivity(intent)
+            }
+        } else {
+            holder.itemView.setOnClickListener {
+                context.startActivity(Intent(context, AllCategoriesActivity::class.java))
             }
         }
     }

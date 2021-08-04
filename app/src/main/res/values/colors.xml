@@ -15,4 +15,5 @@
     <color name="secondary_color">#D55C90</color>
     <color name="primary_light_color">#D180A3</color>
     <color name="text_grey_color">#6B6B6D</color>
+    <color name="text_green_color">#57E216</color>
 </resources>

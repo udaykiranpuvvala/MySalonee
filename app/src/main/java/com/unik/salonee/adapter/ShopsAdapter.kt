@@ -28,7 +28,7 @@ class ShopsAdapter(val context: Context, val shopModelArrayList: ArrayList<ShopM
 
         holder.txtShopTitle.text = shopModelArrayList.get(position).shopTitle
         holder.txtShopAddress.text = shopModelArrayList.get(position).shopAddress
-        holder.ratingShop.rating = (shopModelArrayList.get(position).rating).toFloat()
+//        holder.ratingShop.rating = (shopModelArrayList.get(position).rating).toFloat()
         holder.txtShopTimings.text = shopModelArrayList.get(position).timings
 
         Picasso.get()

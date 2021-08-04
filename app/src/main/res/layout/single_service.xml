@@ -36,8 +36,7 @@
                 <ImageView
                     android:id="@+id/ivServices"
                     android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="@dimen/_90sdp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/change_password" />
             </LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.unik.modelapp.utilities.Constants
+import com.unik.salonee.BaseApplication
 import com.unik.salonee.R
 import com.unik.salonee.models.CartServicesModel
 import com.unik.salonee.models.ServicesModel
@@ -44,16 +45,21 @@ class ShopDetailsAdapter(val context: Context, val servicesArrayList: ArrayList<
             .placeholder(context.resources.getDrawable(R.drawable.ic_mysalonee_final_logo))
             .into(holder.ivServices)
 
+        for(i in 0 until BaseApplication.cartModelServicesArrayList.size){
+            if(servicesArrayList.get(position).service_name.equals(BaseApplication.cartModelServicesArrayList.get(i).serviceName)){
+                holder.txtAddToCart.text = "Added"
+            }
+        }
         holder.txtAddToCart.setOnClickListener {
+
             if (!holder.txtAddToCart.text.equals("Added")) {
                 holder.txtAddToCart.text = "Added"
-                Toast.makeText(context, "Added To Cart", Toast.LENGTH_LONG).show()
 
                 val cartServicesModel = CartServicesModel(servicesArrayList.get(position).service_provider_id,
                     servicesArrayList.get(position).service_provider_id,
                     "300",servicesArrayList.get(position).service_name,
                     servicesArrayList.get(position).service_provider_id)
-                listener.onItemClick(cartServicesModel,position)
+                listener.onItemClick(cartServicesModel,position,context)
             } else {
                 Toast.makeText(context, "Already Added To Cart", Toast.LENGTH_LONG).show()
             }

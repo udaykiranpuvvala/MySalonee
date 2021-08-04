@@ -74,13 +74,13 @@ class HomeActivity : AppCompatActivity() {
     lateinit var shopModelArrayList: ArrayList<ShopModel>
 
     var items = arrayListOf(
-        NavigationItemModel(R.drawable.ic_menu_camera, "Booking History"),
-        NavigationItemModel(R.drawable.ic_menu_gallery, "Change Password"),
-        NavigationItemModel(R.drawable.ic_menu_slideshow, "Change Phone Number"),
-        NavigationItemModel(R.drawable.ic_menu_camera, "Notifications"),
-        NavigationItemModel(R.drawable.ic_menu_gallery, "Discount"),
-        NavigationItemModel(R.drawable.ic_menu_slideshow, "Customer Support"),
-        NavigationItemModel(R.drawable.ic_menu_gallery, "Terms & Conditions")
+        NavigationItemModel(R.drawable.ic_booking_history, "Booking History"),
+        NavigationItemModel(R.drawable.ic_changepassword, "Change Password"),
+        NavigationItemModel(R.drawable.ic_changephone, "Change Phone Number"),
+        NavigationItemModel(R.drawable.ic_notification, "Notifications"),
+        NavigationItemModel(R.drawable.ic_discount, "Discount"),
+        NavigationItemModel(R.drawable.ic_customsupport, "Customer Support"),
+        NavigationItemModel(R.drawable.ic_termscondition, "Terms & Conditions")
     )
 
 

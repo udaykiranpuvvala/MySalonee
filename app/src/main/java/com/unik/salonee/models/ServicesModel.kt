@@ -11,5 +11,7 @@ data class ServicesModel(
     val close_time: String,
     val rating: String,
     val shop_id: String,
-    val gender: String
+    val gender: String,
+    val homePrice: String,
+    val salonPrice: String
 )

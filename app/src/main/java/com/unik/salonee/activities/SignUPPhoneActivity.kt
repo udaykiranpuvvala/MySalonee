@@ -67,8 +67,11 @@ class SignUPPhoneActivity : AppCompatActivity() {
                             val intent = Intent(this, OTPActivity::class.java)
                             intent.putExtra(
                                 "phno",
-                                tvCountryCode.text.trim().toString() +
                                         "" + edtPhoneNumber.text.toString().trim()
+                            )
+                            intent.putExtra(
+                                "countryCode",
+                                "" + tvCountryCode.text.trim().toString()
                             )
                             intent.putExtra(
                                 "otp",

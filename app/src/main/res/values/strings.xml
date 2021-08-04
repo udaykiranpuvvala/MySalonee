@@ -79,4 +79,18 @@ Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, whe
     <string name="add_to_cart">Add To Cart</string>
     <string name="checkout">Checkout</string>
     <string name="items">Items</string>
+    <string name="clear_cart">Clear Cart?</string>
+    <string name="service_at_salon">Service at Salon</string>
+    <string name="service_at_shop">Service At Shop</string>
+    <string name="service_at">Service At</string>
+    <string name="salon">Salon</string>
+    <string name="home">Home</string>
+    <string name="preferences">Preferences</string>
+    <string name="slot_date">Select Slot Date</string>
+    <string name="available_slot">Available Slot</string>
+    <string name="services_in_cart">Services in Cart</string>
+    <string name="proceed_to_pay">Proceed To Pay</string>
+    <string name="products_in_cart">Products in Cart</string>
+    <string name="shop">Shop</string>
+    <string name="history">Booking History</string>
 </resources>

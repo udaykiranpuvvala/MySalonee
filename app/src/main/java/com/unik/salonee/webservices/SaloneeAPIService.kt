@@ -94,6 +94,18 @@ interface SaloneeAPIService {
     @GET("home_screen_content.php")
     fun homeContentScreen(): Call<JsonElement>
 
+    @Headers("Accept: application/json")
+    @GET("categories.php")
+    fun categories(): Call<JsonElement>
+
+    @Headers("Accept: application/json")
+    @POST("do_payment.php")
+    fun paymentGateway(@Body params : JsonObject): Call<JsonElement>
+
+    @Headers("Accept: application/json")
+    @POST("booking_history.php")
+    fun bookingHistory(@Body params : JsonObject): Call<JsonElement>
+
 
 /*
     //lokalwala.online/salonee_api/login.php

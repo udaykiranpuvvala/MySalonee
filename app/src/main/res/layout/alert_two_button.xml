@@ -47,13 +47,13 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_pink_border"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
             android:maxLines="1"
-            android:text="@string/yes"
+            android:text="@string/clear_cart"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_10sdp" />
 
         <TextView
@@ -64,12 +64,12 @@
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_pink_border"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
             android:text="@string/no"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_10sdp" />
     </LinearLayout>
 </LinearLayout>

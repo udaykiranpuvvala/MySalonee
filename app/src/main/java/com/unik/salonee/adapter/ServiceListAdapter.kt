@@ -1,6 +1,7 @@
 package com.unik.salonee.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.squareup.picasso.Picasso
 import com.unik.modelapp.utilities.Constants
 import com.unik.salonee.R
 import com.unik.salonee.activities.ServiceListActivity
+import com.unik.salonee.activities.ShopsDetailsActivity
 import com.unik.salonee.models.ServicesModel
 
 class ServiceListAdapter(val context: Context, val servicesArrayList: ArrayList<ServicesModel>) :
@@ -31,6 +33,12 @@ class ServiceListAdapter(val context: Context, val servicesArrayList: ArrayList<
             .load(Constants.IMAGE_BASE_URL + "" + servicesArrayList.get(position).service_image)
             .placeholder(context.resources.getDrawable(R.drawable.ic_mysalonee_final_logo))
             .into(holder.ivServices)
+
+        holder.txtViewShops.setOnClickListener {
+            val intent = Intent(context, ShopsDetailsActivity::class.java)
+            intent.putExtra("shopId", servicesArrayList.get(position).service_provider_id)
+            context.startActivity(intent)
+        }
 
     }
 

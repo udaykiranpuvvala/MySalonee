@@ -21,6 +21,7 @@ class OTPActivity : AppCompatActivity() {
 
     lateinit var phno: String
     lateinit var otp: String
+    lateinit var countryCode: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_o_t_p)
@@ -48,7 +49,10 @@ class OTPActivity : AppCompatActivity() {
 
         txtPinEntry.setOnPinEnteredListener(PinEntryEditText.OnPinEnteredListener {
             if(it.toString().equals(otp)){
-                startActivity(Intent(this, RegistrationActivity::class.java))
+                val intent = Intent(this, RegistrationActivity::class.java)
+                intent.putExtra("countryCode",countryCode)
+                intent.putExtra("phno",phno)
+                startActivity(intent)
                 finish()
             } else {
                 PopUtils.alertDialog(this, "Invalid PIN", null)
@@ -63,8 +67,9 @@ class OTPActivity : AppCompatActivity() {
     private fun getIntentData() {
         phno = intent.getStringExtra("phno").toString()
         otp = intent.getStringExtra("otp").toString()
+        countryCode = intent.getStringExtra("countryCode").toString()
         if (!Utility.isValueNullOrEmpty(phno)) {
-            tvPhoneNumber.text = phno
+            tvPhoneNumber.text = countryCode+""+phno
         }
     }
 }
