@@ -106,7 +106,9 @@ interface SaloneeAPIService {
     @POST("booking_history.php")
     fun bookingHistory(@Body params : JsonObject): Call<JsonElement>
 
-
+    @Headers("Accept: application/json")
+    @GET("promocode.php")
+    fun promocode(): Call<JsonElement>
 /*
     //lokalwala.online/salonee_api/login.php
 

@@ -3,6 +3,7 @@ package com.unik.salonee.activities
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -16,6 +17,7 @@ class BookingHistoryActivity : AppCompatActivity() {
 
     var tabLayout: TabLayout? = null
     var viewPager: ViewPager? = null
+    lateinit var ivBack : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,12 @@ class BookingHistoryActivity : AppCompatActivity() {
 
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
+
+        ivBack = findViewById(R.id.ivBack)
+
+        ivBack.setOnClickListener {
+            finish()
+        }
 
         tabLayout!!.addTab(tabLayout!!.newTab().setText("Booking History"))
         tabLayout!!.addTab(tabLayout!!.newTab().setText("Schedule Booking"))

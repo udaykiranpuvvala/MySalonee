@@ -202,22 +202,26 @@ class ShopsDetailsActivity : AppCompatActivity() {
                 val jsonResponse = JSONObject(it.toString())
                 if (jsonResponse.optString("status").equals("200")) {
                     val jsonArrayShopDetails = jsonResponse.optJSONArray("shop_details")
-                    txtShopName.text =
-                        jsonArrayShopDetails.optJSONObject(0).optString("business_name")
-                    txtShopTitle.text =
-                        jsonArrayShopDetails.optJSONObject(0).optString("business_name")
-                    txtShopAddress.text = jsonArrayShopDetails.optJSONObject(0).optString("address")
-                    /*txtRatingCount.text = "4.2"
-                    ratingShop.rating = 4.2f*/
-                    txtShopTimings.text = "Opens at 10:00 AM Closes at 9:00 PM"
-                    Picasso.get()
-                        .load(
-                            Constants.IMAGE_BASE_URL_SHOPS + "" + jsonArrayShopDetails.optJSONObject(
-                                0
-                            ).optString("image")
-                        )
-                        .placeholder(resources.getDrawable(R.drawable.ic_mysalonee_final_logo))
-                        .into(ivShopImage)
+                    if (jsonArrayShopDetails != null) {
+                        if (jsonArrayShopDetails.optJSONObject(0) != null) {
+                            txtShopName.text =
+                                jsonArrayShopDetails.optJSONObject(0).optString("business_name")
+                            txtShopTitle.text =
+                                jsonArrayShopDetails.optJSONObject(0).optString("business_name")
+                            txtShopAddress.text =
+                                jsonArrayShopDetails.optJSONObject(0).optString("address")
+
+                            txtShopTimings.text = "Opens at 10:00 AM Closes at 9:00 PM"
+                            Picasso.get()
+                                .load(
+                                    Constants.IMAGE_BASE_URL_SHOPS + "" + jsonArrayShopDetails.optJSONObject(
+                                        0
+                                    ).optString("image")
+                                )
+                                .placeholder(resources.getDrawable(R.drawable.ic_mysalonee_final_logo))
+                                .into(ivShopImage)
+                        }
+                    }
 
                     val jsonArrayServices = jsonResponse.optJSONArray("ourservices")
                     if (jsonArrayServices != null) {
@@ -236,8 +240,8 @@ class ShopsDetailsActivity : AppCompatActivity() {
                                 "",
                                 "",
                                 "",
-                                jsonObjectService.optString("service_at_home_price","0"),
-                                jsonObjectService.optString("service_at_salon_price","0")
+                                jsonObjectService.optString("service_at_home_price", "0"),
+                                jsonObjectService.optString("service_at_salon_price", "0")
                             )
                             servicesList.add(services)
                         }

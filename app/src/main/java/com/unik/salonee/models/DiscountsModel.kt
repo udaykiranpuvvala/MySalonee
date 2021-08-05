@@ -1,9 +1,9 @@
 package com.unik.salonee.models
 
 data class DiscountsModel(
-    val discountsID: String,
-    val discountsTitle: String,
-    val discountsDesc: String,
-    val discountsValidDate: String,
-    val discountsImage: String
+    val coupon_code: String,
+    val discount_per: String,
+    val only_for: String,
+    val image: String,
+    val short_desc: String
 )

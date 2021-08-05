@@ -29,8 +29,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/white" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="@dimen/_10sdp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/colorPrimary"
+        android:text="No Notifications are Found"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTermsConditions"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
         android:id="@+id/rvNotifications"
         android:layout_width="match_parent"
         android:layout_height="0dp"
