@@ -3,9 +3,6 @@ package com.unik.modelapp.utilities
 object Constants {
     const val APP_PREF = "salonee_preff"
 
-    //    const val BASE_URL = "https://meerapp.co/"
-//    const val BASE_URL = "http://lokalwala.online/salonee_api/"
-//    const val IMAGE_BASE_URL = "http://lokalwala.online/salonee_api"
     const val IMAGE_BASE_URL_ONBOARD = "https://staging.mysalonee.com/saloneeapi/"
     const val BASE_URL = "https://staging.mysalonee.com/saloneeapi/"
     const val IMAGE_BASE_URL = "https://staging.mysalonee.com/salonee_admin/"
