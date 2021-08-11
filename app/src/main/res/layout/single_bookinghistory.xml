@@ -136,11 +136,11 @@
             android:textColor="@color/primary_color"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/txtAddRating"
+            app:layout_constraintRight_toLeftOf="@+id/txtCancel"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtAddRating"
+            android:id="@+id/txtCancel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
